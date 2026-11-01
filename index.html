@@ -19,7 +19,7 @@
 
 <body>
   <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
-  <header class="site-header" id="inicio">
+ <header class="site-header" id="inicio" style="scroll-margin-top: 0;">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Afinp Finance, voltar ao início">
         <img src="assets/afinplogo.png" width="41" height="41" alt="">
@@ -28,7 +28,7 @@
       <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
         <a href="#funcionalidades">Funcionalidades</a>
         <a href="#publicos">Para quem</a>
-        <a href="#afinpaI">Afinp AI</a>
+        <a href="#afinpai">Afinp AI</a>
         <a href="#planos">Planos</a>
         <a href="#perguntas">Dúvidas</a>
       </nav>
@@ -223,7 +223,7 @@
       </div>
     </section>
 
-    <section class="section ai-section" id="afinpaI" aria-labelledby="ai-title">
+    <section class="section ai-section" id="afinpai" aria-labelledby="ai-title">
       <div class="container ai-grid">
         <div class="ai-visual">
           <div class="ai-visual-header"><span class="ai-avatar"><svg class="icon">
@@ -377,7 +377,7 @@
               </svg></h3>
             <p>Análises e simulações para decisões mais conscientes.</p>
             <div class="price"><span class="price-amount" data-month="R$ 29,90" data-year="R$ 299">R$ 29,90</span><span
-                class="price-unit" data-month="/ mês" data-year="/ ano">/ mês</span></div><a href="#afinpaI"
+                class="price-unit" data-month="/ mês" data-year="/ ano">/ mês</span></div><a href="#afinpai"
               class="button button-plan button-primary">Descobrir o Plus <svg class="icon">
                 <use href="assets/icons.svg#arrow" />
               </svg></a>
@@ -588,8 +588,12 @@
       <div class="container closing-content"><span class="section-tag light">O PRÓXIMO PASSO É SEU</span>
         <h2>Mais clareza para<br><span class="gradient-text">o seu próximo passo.</span></h2>
         <p>O Afinp Finance está sendo pensado para facilitar as pequenas decisões de hoje — e ajudar você a se preparar
-          para as grandes decisões de amanhã.</p><a href="#inicio" class="button button-primary">Voltar ao início <svg
-            class="icon">
+          para as grandes decisões de amanhã.</p><a href="#inicio" class="button button-primary" id="back-to-top">
+  Voltar ao início
+  <svg class="icon" aria-hidden="true">
+    <use href="assets/icons.svg#arrow"></use>
+  </svg>
+</a>
             <use href="assets/icons.svg#arrow" />
           </svg></a>
         <div class="closing-ornament" aria-hidden="true"></div>
@@ -628,7 +632,7 @@
           <use href="assets/icons.svg#check" />
         </svg><span>Plus: até 200 perguntas mensais*</span></div>
     </div><a class="button button-primary" href="#planos" id="dialog-to-plans">Ver planos e valores <svg class="icon">
-        <use href="assets/afinplogo.png" />
+        <use href="assets/icons.svg#arrow" />
       </svg></a><button class="dialog-secondary" type="button" id="dialog-free">Continuar gratuitamente</button><small>*
       Demonstração, sem contratação ou uso real de IA. Limites propostos.</small>
   </dialog>
