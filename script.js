@@ -20,6 +20,9 @@ mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', cl
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') closeMenu();
 });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 800) closeMenu();
+});
 
 // Planos: público e periodicidade de cobrança.
 // Para alterar preços, edite os atributos data-month/data-year no index.html.
@@ -64,7 +67,7 @@ billingButtons.forEach(button => button.addEventListener('click', () => {
 
 // Janela de demonstração do paywall, sem cobrança.
 const paywall = document.querySelector('#paywall-dialog');
-const openPaywall = document.querySelector('[data-open-paywall]');
+const openPaywallButtons = document.querySelectorAll('[data-open-paywall]');
 const closePaywall = document.querySelector('.dialog-close');
 const keepFree = document.querySelector('#dialog-free');
 const toPlans = document.querySelector('#dialog-to-plans');
@@ -79,10 +82,10 @@ function showPaywall() {
   }
 }
 function hidePaywall() {
-  paywall?.close();
+  if (paywall?.open) paywall.close();
   document.body.classList.remove('dialog-open');
 }
-openPaywall?.addEventListener('click', showPaywall);
+openPaywallButtons.forEach(button => button.addEventListener('click', showPaywall));
 closePaywall?.addEventListener('click', hidePaywall);
 keepFree?.addEventListener('click', hidePaywall);
 toPlans?.addEventListener('click', () => {
@@ -96,3 +99,22 @@ paywall?.addEventListener('click', event => {
 
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
+
+// Estado inicial sincronizado com o HTML.
+selectAudience(document.querySelector('[data-audience].active')?.dataset.audience || 'individual');
+selectBilling(document.querySelector('[data-billing].active')?.dataset.billing || 'month');
+// Corrige o botão "Voltar ao início"
+const backToTop = document.querySelector('#back-to-top');
+
+backToTop?.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+
+  // Garante que a URL não fique presa em outra seção
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+});
